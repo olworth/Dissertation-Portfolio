@@ -6,6 +6,8 @@ The core of the project was an investigation into NLP tasks in Catalan and Galic
 
 A particularly pertinent example is that of my Dependency Parsing models: whereas Galician models preferred a small number of closely-related languages, their Catalan equivalents benefitted substantially more from a massively multilingual pre-training, spanning over a hundred languages. I theorised that this was the result of Galician morphology and syntax sitting in more of a "sweet spot" of similarity in relation to its close typological relatives, and attempted to quantify this.
 
+If you would like to play around with some of the models I created, click [here](https://huggingface.co/homersimpson) for my HuggingFace account. HuggingFace's Inference API should facilitate some limited interaction with them, but if not they can be freely downloaded. If you would like to read my dissertation in its entirety, please contact me and I will provide access!
+
 The example scripts contained in this repository are as follows:
 
 * [belebele-train.py](https://github.com/olworth/Dissertation-Portfolio/blob/main/example-scripts/belebele-natural-language-understanding/belebele-train.py), [belebele-eval.py](https://github.com/olworth/Dissertation-Portfolio/blob/main/example-scripts/belebele-natural-language-understanding/belebele-eval.py)
@@ -29,5 +31,3 @@ The example scripts contained in this repository are as follows:
 
 * [trim-xlm-r.py](https://github.com/olworth/Dissertation-Portfolio/blob/main/example-scripts/trim-xlm-r/trim-xlm-r.py)
     * Code to trim the vocabulary of the RoBERTa-architecture MMT XLM-R-base, in the same manner as described above. An adaptation of [David Dale's code](https://colab.research.google.com/drive/1f-n3zBQjmtMrp7oHzvunHPSC5aIMNe_N?usp=sharing).
-
-If you would like to play around with some of the models I created, click [here](https://huggingface.co/homersimpson) for my HuggingFace account. HuggingFace's Inference API should facilitate some limited interaction with them, but if not they can be freely downloaded. If you would like to read my dissertation in its entirety, please contact me and I will provide access!
