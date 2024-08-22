@@ -1,0 +1,26 @@
+[2024-02-09 15:38:21 INFO] 
+amp: false
+binarize: false
+buckets: 8
+cache: false
+data: gl_ctg-ud-test.conllu
+device: '0'
+dist: ddp
+mode: evaluate
+partial: false
+path: /mnt/nas_home/och26/dep/gal/5/pt/model
+proj: false
+punct: false
+seed: 1
+threads: 16
+tree: true
+wandb: false
+workers: 0
+
+[2024-02-09 15:38:23 INFO] Loading the data
+[2024-02-09 15:38:23 INFO] Caching the data to /tmp/tmpyjox1we1/data.pt
+[2024-02-09 15:38:24 INFO] 
+Dataset(n_sentences=861, n_batches=9, n_buckets=8)
+[2024-02-09 15:38:24 INFO] Evaluating the data
+[2024-02-09 15:38:25 INFO] loss: 0.7990 - UCM: 10.80% LCM:  5.57% UAS: 86.64% LAS: 83.45%
+[2024-02-09 15:38:25 INFO] 0:00:01.169291s elapsed, 26168.85 Tokens/s, 736.34 Sents/s

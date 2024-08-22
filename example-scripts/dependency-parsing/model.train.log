@@ -1,0 +1,100 @@
+[2024-01-27 15:27:52 INFO] 
+amp: false
+batch_size: 16
+bert: homersimpson/subsec-xlm-roberta-portuguese-30k
+bert_pooling: mean
+binarize: false
+buckets: 32
+build: false
+cache: false
+checkpoint: false
+clip: 5.0
+dev: gl_ctg-ud-dev.conllu
+device: '0'
+dist: ddp
+embed: glove-6b-100
+encoder: bert
+encoder_dropout: 0.1
+epochs: 4
+feat: null
+fix_len: 20
+lr: 2.0e-05
+lr_rate: 20
+max_len: null
+min_freq: 2
+mix_dropout: 0.0
+mlp_dropout: 0.33
+mode: train
+n_arc_mlp: 500
+n_bert_layers: 4
+n_rel_mlp: 100
+partial: false
+path: dep/gal/5/pt/model
+proj: false
+punct: false
+seed: 86
+test: gl_ctg-ud-test.conllu
+threads: 16
+train: gl_ctg-ud-train.conllu
+tree: false
+update_steps: 1
+wandb: false
+warmup: 0.1
+workers: 0
+
+[2024-01-27 15:27:52 INFO] Building the fields
+[2024-01-27 15:27:53 INFO] CoNLL(
+ (words): SubwordField(vocab_size=30000, pad=<pad>, unk=<unk>, bos=<s>)
+ (texts): RawField()
+ (arcs): Field(bos=<bos>, use_vocab=False)
+ (rels): Field(vocab_size=29, bos=<bos>)
+)
+[2024-01-27 15:27:53 INFO] Building the model
+[2024-01-27 15:27:54 INFO] BiaffineDependencyModel(
+  (encoder): TransformerEmbedding(homersimpson/subsec-xlm-roberta-portuguese-30k, n_layers=4, n_out=768, stride=256, pooling=mean, pad_index=1, finetune=True)
+  (encoder_dropout): Dropout(p=0.1, inplace=False)
+  (arc_mlp_d): MLP(n_in=768, n_out=500, dropout=0.33)
+  (arc_mlp_h): MLP(n_in=768, n_out=500, dropout=0.33)
+  (rel_mlp_d): MLP(n_in=768, n_out=100, dropout=0.33)
+  (rel_mlp_h): MLP(n_in=768, n_out=100, dropout=0.33)
+  (arc_attn): Biaffine(n_in=500, bias_x=True)
+  (rel_attn): Biaffine(n_in=100, n_out=29, bias_x=True, bias_y=True)
+  (criterion): CrossEntropyLoss()
+)
+
+[2024-01-27 15:27:54 INFO] Loading the data
+[2024-01-27 15:27:54 INFO] Caching the data to /tmp/tmpkodjfpej/data.pt
+[2024-01-27 15:27:57 INFO] Caching the data to /tmp/tmpc4pwj5r8/data.pt
+[2024-01-27 15:27:58 INFO] train: Dataset(n_sentences=2272, n_batches=2270, n_buckets=32)
+[2024-01-27 15:27:58 INFO] Caching the data to /tmp/tmpve0yaxns/data.pt
+[2024-01-27 15:27:59 INFO] dev:   Dataset(n_sentences=860, n_batches=858, n_buckets=32)
+[2024-01-27 15:27:59 INFO] test:  Dataset(n_sentences=861, n_batches=861, n_buckets=32)
+
+[2024-01-27 15:27:59 INFO] Epoch 1 / 4:
+[2024-01-27 15:28:52 INFO] lr: 1.6667e-05 - loss: 0.8347
+[2024-01-27 15:28:55 INFO] dev:  loss: 0.9010 - UCM:  3.72% LCM:  1.63% UAS: 83.05% LAS: 78.59%
+[2024-01-27 15:28:59 INFO] test: loss: 0.8943 - UCM:  3.60% LCM:  1.51% UAS: 82.88% LAS: 78.53%
+[2024-01-27 15:29:03 INFO] 0:00:59.774239s elapsed (saved)
+
+[2024-01-27 15:29:03 INFO] Epoch 2 / 4:
+[2024-01-27 15:29:55 INFO] lr: 1.1111e-05 - loss: 0.6558
+[2024-01-27 15:29:59 INFO] dev:  loss: 0.8104 - UCM:  7.44% LCM:  3.84% UAS: 85.77% LAS: 82.09%
+[2024-01-27 15:30:02 INFO] test: loss: 0.7960 - UCM:  8.25% LCM:  3.83% UAS: 85.67% LAS: 82.17%
+[2024-01-27 15:30:06 INFO] 0:00:59.671182s elapsed (saved)
+
+[2024-01-27 15:30:06 INFO] Epoch 3 / 4:
+[2024-01-27 15:30:58 INFO] lr: 5.5556e-06 - loss: 1.1532
+[2024-01-27 15:31:02 INFO] dev:  loss: 0.9035 - UCM:  8.60% LCM:  4.65% UAS: 86.27% LAS: 82.74%
+[2024-01-27 15:31:05 INFO] test: loss: 0.8775 - UCM:  8.71% LCM:  4.76% UAS: 86.09% LAS: 82.89%
+[2024-01-27 15:31:09 INFO] 0:00:59.539943s elapsed (saved)
+
+[2024-01-27 15:31:09 INFO] Epoch 4 / 4:
+[2024-01-27 15:32:01 INFO] lr: 0.0000e+00 - loss: 0.6049
+[2024-01-27 15:32:05 INFO] dev:  loss: 0.8708 - UCM:  8.72% LCM:  5.12% UAS: 86.47% LAS: 83.09%
+[2024-01-27 15:32:09 INFO] test: loss: 0.8467 - UCM: 10.57% LCM:  5.57% UAS: 86.63% LAS: 83.44%
+[2024-01-27 15:32:12 INFO] 0:00:59.527656s elapsed (saved)
+
+[2024-01-27 15:32:15 INFO] Epoch 4 saved
+[2024-01-27 15:32:15 INFO] dev:  loss: 0.8708 - UCM:  8.72% LCM:  5.12% UAS: 86.47% LAS: 83.09%
+[2024-01-27 15:32:19 INFO] test: loss: 0.8467 - UCM: 10.57% LCM:  5.57% UAS: 86.63% LAS: 83.44%
+[2024-01-27 15:32:19 INFO] 0:03:58.513020s elapsed, 0:00:59.628255s/epoch
